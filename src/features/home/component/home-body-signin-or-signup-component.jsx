@@ -26,9 +26,9 @@ let SignInSignOrUpUserContaner = () =>{
 </div>
 
     <div className="pt-1 flex  justify-center ">
-        <p className="w-32 bg-white h-0.5 mt-3 mr-3 " ></p>
+        <p className="dark:bg-white   w-32 bg-black h-0.5 mt-3 mr-3 " ></p>
         <p>or</p>
-        <p className="w-32 bg-white h-0.5 mt-3 ml-3 " ></p>
+        <p className="dark:bg-white w-32 bg-black h-0.5 mt-3 ml-3 " ></p>
     </div>
 
      <div>

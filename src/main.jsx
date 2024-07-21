@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes,} from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename='/binnances'>
+    <BrowserRouter >
     <Routes>
       <Route path='/' element={<App/>} />
       <Route path='*' element={<div>path not found</div>} />
