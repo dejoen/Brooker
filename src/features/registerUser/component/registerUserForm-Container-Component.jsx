@@ -2,7 +2,7 @@
 const RegisterUserForm = () => {
 
     return (
-      <div className="mx-auto md:w-1/2 xl:pe-12 text-white ps-10 pe-10">
+      <div className="mx-auto md:w-1/2 xl:pe-12 text-white ps-10 pe-10 overflow-y-auto">
        <div>
        <p>Create An Account</p>
        <p>Register with your email</p>
@@ -14,19 +14,19 @@ const RegisterUserForm = () => {
     {/*FirstName Container*/ }
     <div className="mt-8">
          <p>FirstName</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="text"   />
+         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="text"   />
          </div>
 
           {/*LastName Container*/ }
     <div className="mt-2">
          <p>LastName</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="text"   />
+         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="text"   />
          </div>
 
                {/*Phone number Container*/ }
  <div className="mt-2">
          <p>Phone Number</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="tel"   />
+         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="tel"   />
          </div>
 
         {/*Email Container*/ }
@@ -38,7 +38,7 @@ const RegisterUserForm = () => {
           {/*Country Container*/ }
  <div className="mt-2">
          <p>Country</p>
-         <select className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="password"
+         <select className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="password"
    >
     <option>default</option>
     <option>Nigeria</option>
@@ -48,7 +48,7 @@ const RegisterUserForm = () => {
    {/*Country Container*/ }
    <div className="mt-2">
          <p>Currency</p>
-         <select className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" 
+         <select className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" 
    >
     <option>default</option>
     <option>$</option>
@@ -58,7 +58,7 @@ const RegisterUserForm = () => {
  {/*Password Container*/ }
  <div className="mt-2">
          <p>Password</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-3" type="password"   />
+         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-3" type="password"   />
          </div>
 
 
