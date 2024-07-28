@@ -12,7 +12,7 @@ let SignInSignOrUpUserContaner = () =>{
 
           <div className="bg-yellow-600 pl-2 pr-2 rounded-lg flex mb-6  mt-4" 
            onClick={()=>{
-            navigation('/ja')
+            navigation('/registerUser')
            
            }}
           >
