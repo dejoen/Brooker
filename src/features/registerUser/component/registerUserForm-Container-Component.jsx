@@ -14,31 +14,50 @@ const RegisterUserForm = () => {
     {/*FirstName Container*/ }
     <div className="mt-8">
          <p>FirstName</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="text"   />
+         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="text"   />
          </div>
 
           {/*LastName Container*/ }
     <div className="mt-2">
          <p>LastName</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="text"   />
+         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="text"   />
          </div>
 
                {/*Phone number Container*/ }
  <div className="mt-2">
          <p>Phone Number</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="tel"   />
+         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="tel"   />
          </div>
 
         {/*Email Container*/ }
          <div className="mt-2">
          <p>Email</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="email"  required />
+         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="email"  required />
+         </div>
+
+      {/*Profile Container*/ }
+      <div className="mt-2">
+         <p>Profile Picture</p>
+         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="file"  required />
+         </div>
+
+          {/*Password Container*/ }
+ <div className="mt-2">
+         <p>Password</p>
+         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-3" type="password"   />
+         </div>
+
+
+{/*`Confirm Password Container*/ }
+ <div className="mt-2">
+         <p>Confirm Password</p>
+         <input className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-3" type="password"   />
          </div>
 
           {/*Country Container*/ }
  <div className="mt-2">
          <p>Country</p>
-         <select className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" type="password"
+         <select className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="password"
    >
     <option>default</option>
     <option>Nigeria</option>
@@ -48,25 +67,26 @@ const RegisterUserForm = () => {
    {/*Country Container*/ }
    <div className="mt-2">
          <p>Currency</p>
-         <select className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-0" 
+         <select className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" 
    >
     <option>default</option>
     <option>$</option>
    </select>
          </div>
 
- {/*Password Container*/ }
- <div className="mt-2">
-         <p>Password</p>
-         <input className="w-80 xl:w-80  outline-none text-black p-3 rounded-md mb-3" type="password"   />
-         </div>
 
+           {/*Password Container*/ }
+ <div className="mx-auto mt-5 w-80 bg-yellow-600 p-2 rounded-xl text-center">
+        <p><a href="#">Sign Up</a></p>
+         </div>
 
    
 
        </div>
          
-         
+      <div className="mt-8 w-full text-center">
+            <p>Already have an account? <span className="text-yellow-500 "><a href="#">Login</a></span></p>
+      </div>
       </div>
 
     );
