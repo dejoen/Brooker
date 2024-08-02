@@ -1,8 +1,11 @@
 
-import  {useNavigate}  from 'react-router-dom'
-
+import  {Link}  from 'react-router-dom'
+import btc  from  '../../../assets/btc.svg'
+import eth from '../../../assets/eth.svg'
+import bnb from '../../../assets/bnb.svg'
+import xpr from '../../../assets/xpr.svg'
 let SignInSignOrUpUserContaner = () =>{
-  const navigation = useNavigate()
+  
     return (
       
       <div className="  flex flex-col place-items-center lg:w-1/2 ">
@@ -10,49 +13,79 @@ let SignInSignOrUpUserContaner = () =>{
 
         <div className="flex flex-col text-sm place-items-center" >
 
-          <div className="bg-yellow-600 pl-2 pr-2 rounded-lg flex mb-6  mt-4" 
-           onClick={()=>{
-            navigation('/registerUser')
-           
-           }}
-          >
-           <p className="p-2">icon</p>
-        <p className="p-2">Sign up email or phone number</p>
-        <div>
-        
-        </div>
-          
-          
-</div>
+ 
 
-    <div className="pt-1 flex  justify-center ">
-        <p className="dark:bg-white   w-32 bg-black h-0.5 mt-3 mr-3 " ></p>
-        <p>or</p>
-        <p className="dark:bg-white w-32 bg-black h-0.5 mt-3 ml-3 " ></p>
-    </div>
+          <p className='text-xl text-yellow-500'>Fund Your Account</p>
+           <p>And Start Trading!</p>
+
+           <div className='mt-5 '>
+            <div className=' BtcContainer flex place-items-center '>
+            <img src={btc}/>
+           <div className='flex gap-5 '>
+           <p className='text-ellipsis'>BTC</p> 
+           <p>$35,09000</p>
+           <p className='text-green-600'>0.937%</p>
+           </div>
+
+
+            </div>
+
+            <div className=' EthContainer flex place-items-center mt-4'>
+            <img src={eth}/>
+           <div className='flex gap-5 '>
+           <p className='text-ellipsis'>ETH</p> 
+           <p>$35,09000</p>
+           <p className='text-red-600'>0.637%</p>
+           </div>
+
+           
+
+
+            </div>
+
+            <div className=' BNBContainer flex place-items-center mt-4'>
+            <img src={bnb}/>
+           <div className='flex gap-5 '>
+           <p className='text-ellipsis'>BNB</p> 
+           <p>$35,09000</p>
+           <p className='text-green-600'>0.937%</p>
+           </div>
+
+           
+
+
+            </div>
+
+            <div className=' XPRContainer flex place-items-center mt-4'>
+            <img src={xpr}/>
+           <div className='flex gap-5 '>
+           <p className='text-ellipsis'>XPR</p> 
+           <p>$35,09000</p>
+           <p className='text-green-600'>0.837%</p>
+           </div>
+
+           
+
+
+            </div>
+
+           </div>
 
      <div>
 
-     <div type='button' className="bg-yellow-600 pl-10 pr-10 rounded-lg flex mt-6  ">
-    <p className="p-2">icon</p>
-    <p className="p-2 ">Continue with Google</p>
-    </div>
+     
 
-    <div className="bg-yellow-600 pl-10 pr-10  rounded-lg flex mt-6  ">
-    <p className="p-2">icon</p>
-    <p className="p-2">Continue with Apple</p>
-    </div>
+   
       </div>
 
-      <div className="mt-5 text-sm  w-full pl-2 ">
+      <div className="mt-16 text-sm  w-full pl-2 ">
         <div className="flex mb-2">
-        <p>Already have an account? </p>
-        <p>Log In</p>
+        <p>Already have an account? <span className='text-yellow-500'><Link to={'/'}>Login</Link></span> </p>
+        <p></p>
         </div>
 
         <div className="flex">
-        <p>Need an entity account? </p>
-        <p>Sign Up</p>
+        <p>Need an entity account?   <span className='text-yellow-500'><Link to={'/registerUser'}>SignUp</Link></span></p>
         </div>
       </div>
 
