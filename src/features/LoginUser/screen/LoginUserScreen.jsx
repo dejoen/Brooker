@@ -6,7 +6,7 @@ let LoginUserScreen = () =>{
     
     <div className="dark:bg-black dark:text-white h-screen">
     <HomeNavBar/>
-     hello logim now
+     hello logim now hdh
     </div>
     
     );
