@@ -5,7 +5,17 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes:{
+        popUp:{
+
+        }
+      },
+      animation:{
+
+      }
+      
+    },
   },
   plugins: [],
 }

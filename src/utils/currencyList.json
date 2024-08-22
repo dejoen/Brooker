@@ -1,0 +1,62 @@
+{
+"currencies":[
+     {
+       "currency":" $",
+       "name":"United States Dollar",
+       "icon":"../assets/eth.svg"
+     },
+      {
+       "currency":"¥",
+       "name":"Japanese Yen"
+     },
+      {
+       "currency":"£",
+       "name":"Pound sterling "
+     },
+      {
+       "currency":"AU$",
+       "name":"Australian Dollar"
+     },
+      {
+       "currency":"CA$",
+       "name":"Canadian Dollar"
+     },
+      {
+       "currency":"SFr",
+       "name":"Swiss Franc"
+     },
+      {
+       "currency":"CN¥",
+       "name":"Chinese Yuan"
+     },
+      {
+       "currency":"NZ$",
+       "name":"New Zealand Dollar "
+     },
+      {
+       "currency":"S$",
+       "name":"Singapore Dollar"
+     }
+     ,
+      {
+       "currency":"HK$",
+       "name":"Hong Kong Dollar"
+     },
+      {
+       "currency":"₩",
+       "name":"South Korean won"
+     },
+      {
+       "currency":"NZ$",
+       "name":"New Zealand Dollar "
+     },
+      {
+       "currency":"R",
+       "name":"South African Rand "
+     }
+     
+     
+     
+    ]
+  
+}

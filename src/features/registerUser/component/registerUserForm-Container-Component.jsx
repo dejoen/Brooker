@@ -4,6 +4,9 @@ import {validateForm}  from "../service/registerUserService";
 
  import errorImage from '../../../assets/erroeImage.jpg'
  
+ import currencyList from '../../../utils/currencyList.json'
+ 
+ import countryList from '../../../utils/countryList.json'
   
 const RegisterUserForm = () => {
       
@@ -74,30 +77,45 @@ const RegisterUserForm = () => {
          <select className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" type="password"
    >
     <option>default</option>
+    {
+      countryList.countries.map((country,index)=>(
+        <option Key={index} >{country} </option>
+        )
+      )
+    }
     <option>Nigeria</option>
    </select>
          </div>
 
-   {/*Country Container*/ }
+   {/*Currency Container*/ }
    <div className="mt-2">
          <p>Currency</p>
          <select className="w-80 xl:w-80  outline-none text-black p-2 rounded-md mb-0" 
    >
     <option>default</option>
-    <option>$</option>
+    {
+      currencyList.currencies.map((result,index)=>(
+         <option key={index}>
+         <div className="">
+        <p><span>{result.name}</span> ({result.currency})</p>
+         </div>
+         </option>
+        ))
+    }
    </select>
          </div>
 
 
            {/*Sign Up button*/ }
- <div className="mx-auto mt-5 w-80 bg-yellow-600 p-2 rounded-xl text-center" onClick={()=>{
+ <div className="mx-auto mt-5 w-fit bg-yellow-600 p-2 rounded-xl text-center" onClick={()=>{
       validateForm(formData).then(result=>{
             setFormValidationResponse(result)
            openPopUpScreen() 
       })
  }}> 
         <p><a  onClick={()=>{
-             openPopUpScreen() 
+
+           openPopUpScreen() 
         }}>Sign Up</a></p>
          </div>
 
@@ -108,9 +126,14 @@ const RegisterUserForm = () => {
       <div className="mt-8 w-full text-center">
             <p>Already have an account? <span className="text-yellow-500 "><a href="#">Login</a></span></p>
       </div>
+      
+      
+
+
+
 
       <PopUpScreen >
-            <div className="w-full flex flex-col place-items-center h-fit ">
+            <div className="animate-popUpAnimation  w-full flex flex-col place-items-center h-fit ">
                 <p className="w-full text-center m-5 text-2xl">Registration Message</p>
                <img src={errorImage} className="w-36 h-full "/>
 

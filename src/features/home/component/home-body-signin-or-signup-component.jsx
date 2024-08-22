@@ -81,7 +81,7 @@ let SignInSignOrUpUserContaner = () =>{
 
       <div className="mt-16 text-sm  w-full pl-2 ">
         <div className="flex mb-2">
-        <p>Already have an account? <span className='text-yellow-500'><Link to={'/'}>Login</Link></span> </p>
+        <p>Already have an account? <span className='text-yellow-500'><Link to={'/loginUser'}>Login</Link></span> </p>
         <p></p>
         </div>
 
