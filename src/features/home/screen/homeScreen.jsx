@@ -12,7 +12,7 @@ let WelcomeScreen = () => {
     <div className="">
     <Helmet>
       <title>Binnancez Brooker</title>
-      
+       <meta name="description" content="Binnancez Brooker website to start trading easily."/>
     </Helmet>
         <HomeNavBar/>
         <HomeBodyContainer/>
