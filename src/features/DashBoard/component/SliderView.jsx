@@ -5,7 +5,7 @@ import shibaIcon from '../../../assets/shibaicon.svg'
 const SliderView = ({image}) => {
     return (
 
-<div className={`relative w-[290px] md:w-[90%] h-[200px] bg-black rounded-xl `}>
+<div className={`relative w-[85%] md:w-[90%] h-[200px] bg-black rounded-xl `}>
     <div className='p-3'>
     <img className='w-[40px] h-[40px] ' src={shibaIcon} />
      <p className='text-sm mt-1'>{'shibanu'}</p>

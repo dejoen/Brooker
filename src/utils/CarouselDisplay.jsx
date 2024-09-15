@@ -2,7 +2,7 @@ export const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 2,
+      items: 5,
       partialVisibilityGutter: 50
     },
     desktop: {
@@ -13,11 +13,11 @@ export const responsive = {
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 1,
-      partialVisibilityGutter: 30 
+      partialVisibilityGutter: 20 
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      partialVisibilityGutter: 30 
+      partialVisibilityGutter: 20
     }
   };
