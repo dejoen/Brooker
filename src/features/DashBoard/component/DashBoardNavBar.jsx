@@ -1,29 +1,90 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const DashBoardNavBar = () => {
-  const [activeNavState,setActiveNavState] = useState({
-    dashBoardNav:{
-        isActive:false
-    },
-    portFolioNav:{
-        isActive:false
-    },
-    tradingNav:{
-        isActive:false
-    },
-    watchListNav:{
-        isActive:false  
-    },
-    acedemyNav:{
-        isActive:false
-    },
-    profileNav:{
-        isActive:false
-    },
-    walletNav:{
-        isActive:false
-    }
+    const location = useLocation()
+     const navigate = useNavigate()
+   const currentRoute = location.pathname.split('/')[2]
+  const [activeNavState,setActiveNavState] = useState(()=>{
+     switch(currentRoute){
+        case 'dashboard':{
+          return  {
+                dashBoardNav:{
+                    isActive:true
+                },
+                portFolioNav:{
+                    isActive:false
+                },
+                tradingNav:{
+                    isActive:false
+                },
+                watchListNav:{
+                    isActive:false  
+                },
+                acedemyNav:{
+                    isActive:false
+                },
+                profileNav:{
+                    isActive:false
+                },
+                walletNav:{
+                    isActive:false
+                }
+              }
+        }
+        case 'portfolio':{
+            return  {
+                  dashBoardNav:{
+                      isActive:false
+                  },
+                  portFolioNav:{
+                      isActive:true
+                  },
+                  tradingNav:{
+                      isActive:false
+                  },
+                  watchListNav:{
+                      isActive:false  
+                  },
+                  acedemyNav:{
+                      isActive:false
+                  },
+                  profileNav:{
+                      isActive:false
+                  },
+                  walletNav:{
+                      isActive:false
+                  }
+                }
+          }
+
+          case 'acedemy':{
+            return  {
+                  dashBoardNav:{
+                      isActive:false
+                  },
+                  portFolioNav:{
+                      isActive:false
+                  },
+                  tradingNav:{
+                      isActive:false
+                  },
+                  watchListNav:{
+                      isActive:false  
+                  },
+                  acedemyNav:{
+                      isActive:true
+                  },
+                  profileNav:{
+                      isActive:false
+                  },
+                  walletNav:{
+                      isActive:false
+                  }
+                }
+          }
+     }
   })
     return (
    <div className="hidden md:block w-[250px] bg-[#212325] text-white h-dvh">
@@ -62,6 +123,7 @@ const DashBoardNavBar = () => {
 
             }
          })
+         navigate('/user/dashboard')
     }}>Dashboard</p>
    </div>
 
@@ -94,10 +156,12 @@ const DashBoardNavBar = () => {
 
             }
          })
+         navigate('/user/portfolio')
     }}>Portfolio</p>
    </div>
 
-   <div className={` ${(activeNavState.tradingNav.isActive)? 'bg-[#FFA50D] border border-[#77ED91] text-black':''} p-2 w-[180px] text-center rounded-[25px]`}>
+  {
+    /*<div className={` ${(activeNavState.tradingNav.isActive)? 'bg-[#FFA50D] border border-[#77ED91] text-black':''} p-2 w-[180px] text-center rounded-[25px]`}>
     <p className="cursor-pointer" onClick={()=>{
          setActiveNavState(prevState=>{
             return {
@@ -160,7 +224,7 @@ const DashBoardNavBar = () => {
          })
     }} >WatchList</p>
    </div>
-
+*/
    <div className={` ${(activeNavState.acedemyNav.isActive)? 'bg-[#FFA50D] border border-[#77ED91] text-black':''} p-2 w-[180px] text-center rounded-[25px]`}>
     <p className="cursor-pointer" onClick={()=>{
          setActiveNavState(prevState=>{
@@ -192,7 +256,7 @@ const DashBoardNavBar = () => {
          })
     }}>Acedemy</p>
    </div>
-
+/* 
 <div className={` ${(activeNavState.profileNav.isActive)? 'bg-[#FFA50D] border border-[#77ED91] text-black':''} p-2 w-[180px] text-center rounded-[25px]`}>
     <p className="cursor-pointer" onClick={()=>{
          setActiveNavState(prevState=>{
@@ -225,7 +289,7 @@ const DashBoardNavBar = () => {
     }}>Profile</p>
    </div>
 
-   <div className={` ${(activeNavState.walletNav.isActive)? 'bg-[#FFA50D] border border-[#77ED91] text-black':''} p-2 w-[180px] text-center rounded-[25px]`}>
+  <div className={` ${(activeNavState.walletNav.isActive)? 'bg-[#FFA50D] border border-[#77ED91] text-black':''} p-2 w-[180px] text-center rounded-[25px]`}>
     <p className="cursor-pointer" onClick={()=>{
          setActiveNavState(prevState=>{
             return {
@@ -255,8 +319,8 @@ const DashBoardNavBar = () => {
             }
          })
     }}>Wallet</p>
-   </div>
-
+   </div>*/
+}
 
    <div className="absolute bottom-10 ">
     <p >Logout</p>
