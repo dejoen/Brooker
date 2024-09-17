@@ -37,11 +37,11 @@ const CoinDisplayContainer = () => {
                                   
                                       <td>
                                       
-                                        <div className="flex flex-wrap md:flex-row gap-2  md:w-[200px] md:ps-8">
+                                        <div className="flex  md:flex-wrap md:flex-row gap-2  md:w-[200px] md:ps-8">
                                         <img src={item.image} className="w-[30px] h-[30px]" />
-                                      <p  className="text-sm text-start">{item.name}<span>{`(${item.symbol})`}</span></p>
+                                      <p  className=" text-sm text-start"><span className="hidden md:block">{item.name}</span><span>{`(${item.symbol})`}</span></p>
                                         </div></td>
-                                      <td>${item.current_price}</td>
+                                      <td>${Number(item.current_price).toFixed(2)}</td>
                                       <td className={`${(String(item.price_change_24h)).startsWith('-')? 'text-red-600': 'text-green-600'} hidden md:block`}>{Number(item.price_change_24h).toFixed(4)
                                       }</td>
                                       <td className="hidden">{item.price_change_percentage_24h}</td>
