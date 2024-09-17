@@ -89,7 +89,7 @@ const DashboardNavBarDrawer = () =>{
     }
  })
     return (
-        <div className="NavBarMobile  absolute top-0 bottom-0  right-0  md:hidden w-[250px] bg-[#212325] text-white h-dvh z-50 shadow-black shadow-lg ">
+        <div className="NavBarMobile  hidden absolute top-0 bottom-0  right-0  md:hidden w-[250px] bg-[#212325] text-white h-dvh z-50 shadow-black shadow-lg ">
             <p className="m-4 text-3xl hover:text-red-500" onClick={()=>{
                 closeNavBar()
             }}>x</p>

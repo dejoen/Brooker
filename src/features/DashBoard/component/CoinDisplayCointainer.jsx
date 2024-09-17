@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 
 import { getMarketCap } from "../service"
 
-
+import chartDownIcon from "../../../assets/chartdown.svg"
+import chartUpIcon from "../../../assets/chartup.svg"
 const CoinDisplayContainer = () => {
 
     const [coinsData,setCoinsData] = useState(null)
@@ -46,7 +47,7 @@ const CoinDisplayContainer = () => {
                                       <td className="hidden">{item.price_change_percentage_24h}</td>
                                       
                                         <td>{String(item.market_cap).slice(0,6)}</td>
-                                        <td><img src={(String(item.price_change_24h).startsWith('-')? "/src/assets/chartdown.svg":"/src/assets/chartup.svg")}/></td>
+                                        <td><img src={(String(item.price_change_24h).startsWith('-')? chartDownIcon:chartUpIcon)}/></td>
                                    </tr>
                                 ))
                             }
