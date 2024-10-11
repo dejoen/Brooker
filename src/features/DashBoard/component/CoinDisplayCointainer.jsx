@@ -13,7 +13,9 @@ const CoinDisplayContainer = () => {
        }).then(result=>{
         console.log(result)
          setCoinsData(result)
-       }).catch(err=>alert(err))
+       }).catch(()=>{
+       
+       })
     },[])
     return (
         <div className=" h-[490px] w-full overflow-x-hidden">
