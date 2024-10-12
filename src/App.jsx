@@ -1,9 +1,12 @@
 
+
 import WelcomeScreen from './features/home/screen/homeScreen'
 import  PopUpScreen,{closePopUpScreen,openPopUpScreen} from './utils/popUpScreen/popUpScreenComponent'
 
+
 let App = () =>{
 
+ 
 
   return (
     <div className="dark:bg-black dark:text-white relative">

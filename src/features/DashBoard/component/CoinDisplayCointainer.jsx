@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
-import { getMarketCap } from "../service"
 
 import chartDownIcon from "../../../assets/chartdown.svg"
 import chartUpIcon from "../../../assets/chartup.svg"
+import { AppContext } from "../../../context/AppContext"
 const CoinDisplayContainer = () => {
+    const {coinsReducerState} = useContext(AppContext)
 
     const [coinsData,setCoinsData] = useState(null)
     useEffect(()=>{
-       getMarketCap().then(res=>{
-        return res.json()
-       }).then(result=>{
-        console.log(result)
-         setCoinsData(result)
-       }).catch(()=>{
+      
+      setCoinsData(coinsReducerState.result)
        
-       })
-    },[])
+    },[coinsReducerState])
     return (
         <div className=" h-[490px] w-full overflow-x-hidden">
              <table className="mx-auto table-fixed md:table-fixed border-separate border-spacing-3 md:border-spacing-5  w-full     text-center ">

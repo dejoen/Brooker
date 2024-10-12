@@ -2,30 +2,36 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { responsive } from "../../../utils/CarouselDisplay";
 import SliderView from "./SliderView";
-import { useEffect, useState } from "react";
-import { getMarketCap } from "../service";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../../../context/AppContext";
 
 const TopCoinContainer = () =>{
 
   const [topCoins, setTopCoins] = useState([])
+  const {coinsReducerDispatcher,coinsReducerState} = useContext(AppContext)
+
 
   useEffect(()=>{
-    getMarketCap().then(res=>{
-      return res.json()
-    }).then(coins=>{
-        let topCoins = coins.sort((a,b)=>{
-          if(a.current_price > b.current_price){
-            return -1
-          }else{
-            return 1
-          }
-         
-        })
-        topCoins = topCoins.slice(0,15)
-        setTopCoins(topCoins)
-      
-    },[])
-  })
+         const data = coinsReducerState.result
+
+         if(data){
+          let topCoins =data.sort((a,b)=>{
+            if(a.current_price > b.current_price){
+              return -1
+            }else{
+              return 1
+            }
+           
+          })
+          topCoins = topCoins.slice(0,15)
+          setTopCoins(topCoins)
+         }
+    
+   
+     
+  },[coinsReducerDispatcher,coinsReducerState])
+
+  
     return (
     <div className="m-8">
       <div className="w-full text-sm flex ">
