@@ -30,7 +30,7 @@ const UserDashBoardScreen = () => {
         }
 
         const updateData = setInterval(()=>{
-            alert('called after 5mins')
+            
             getMarketCap()
             .then(res => {
               return res.json();
