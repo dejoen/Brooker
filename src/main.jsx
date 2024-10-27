@@ -23,8 +23,23 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             </AppContextProvider>
           }
         />
-        <Route path="/registerUser" element={<RegisterUserScreen />} />
-        <Route path="/loginUser" element={<LoginUserScreen />} />
+
+        <Route
+          path="/registerUser"
+          element={
+            <AppContextProvider>
+              <RegisterUserScreen />
+            </AppContextProvider>
+          }
+        />
+        <Route
+          path="/loginUser"
+          element={
+            <AppContextProvider>
+              <LoginUserScreen />
+            </AppContextProvider>
+          }
+        />
 
         <Route path="*" element={<div>path not found</div>} />
         <Route

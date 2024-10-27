@@ -13,7 +13,7 @@ let PopUpScreen = ({children}) =>{
      <div className="  modal-overlay absolute w-full h-full bg-gray-900 opacity-95 flex place-items-center justify-center p-4" >
     
  </div>
- <div className=" rounded-xl bg-white z-50 h-80 w-full m-8 md:w-1/2 text-black">
+ <div className=" rounded-xl bg-white z-50 h-80 w-full m-8 md:w-1/2 text-black min-h-fit">
 
         {children}
     </div>

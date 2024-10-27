@@ -1,13 +1,20 @@
 
+import { useContext } from 'react';
 import menuIcon from '../../../assets/menuIcon.svg'
 import { openNavBar } from './DashBoardNavBarDrawer';
+import { AppContext } from '../../../context/AppContext';
+import { Navigate } from 'react-router-dom';
 
 
 const DashBoardHeader = () => {
+    const {loginReducerState} = useContext(AppContext)
+    
 
     return (
         <>
-        <div className="w-full  md:flex pt-5 ps-5  ">
+
+        {
+            (loginReducerState.user)  ?   <div className="w-full  md:flex pt-5 ps-5  ">
             <div className="md:hidden flex gap-4 absolute right-2 me-4">
                 <img src={menuIcon} />
                 <img src={menuIcon} onClick={()=>{
@@ -18,7 +25,7 @@ const DashBoardHeader = () => {
             <p className="md:hidden w-[40px] h-[40px] rounded-full bg-orange-500"></p>
           
            <div className="text-sm  ">
-            <p>Devjoe</p>
+            <p>{(loginReducerState.user) ? `Welcome ${loginReducerState.user.firstName } ${loginReducerState.user.lastName}`:'Welcome User'}</p>
             <p>Updated on 21 May 2024</p>
             
          </div>
@@ -32,10 +39,20 @@ const DashBoardHeader = () => {
                 <p>Q</p>
             </div>
             <p className='hidden md:block mt-2 ms-10'>N</p>
-         <p className="hidden md:block w-[40px] h-[40px] rounded-full bg-orange-500"></p>
+            <div>
+                {
+                    (loginReducerState.user && loginReducerState.user.profilePicture) ? <img className='w-[40px] h-[40px] rounded-full ' src={`data:image/jpg;base64,${loginReducerState.user.profilePicture}`}/> :   <p className="hidden md:block w-[40px] h-[40px] rounded-full bg-orange-500"></p>
+       
+                }
+           
+            </div>
           
          </div>
-        </div>
+        </div>  : <Navigate to={'/loginUser'} replace/>
+        }
+        
+        
+       
        
         </>
     );
