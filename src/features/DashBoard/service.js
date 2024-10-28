@@ -31,3 +31,17 @@ export const getTrendingCoin =  async () => {
         }
      })
 }
+
+export const  refreshToken = async (token) => {
+
+    return  fetch(`${Constants.BASE_URL}/verify-token`,{
+        method:'POST',
+        headers:{
+            "Content-Type":'application/json',
+            
+        },
+        body:JSON.stringify({
+            token
+        })
+     })
+}

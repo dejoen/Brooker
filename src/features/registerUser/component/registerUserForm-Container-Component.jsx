@@ -1,5 +1,9 @@
 import { useContext, useState } from "react";
-import { getBase64String, registerUser,  verifyEmail } from "../service/registerUserService";
+import {
+  getBase64String,
+  registerUser,
+  verifyEmail
+} from "../service/registerUserService";
 import PopUpScreen, {
   closePopUpScreen,
   openPopUpScreen
@@ -14,10 +18,9 @@ import { CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../context/AppContext";
 
-
 const RegisterUserForm = () => {
-   const {loginDispatcher} = useContext(AppContext)
-   const navigate = useNavigate()
+  const { loginDispatcher } = useContext(AppContext);
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -30,9 +33,9 @@ const RegisterUserForm = () => {
     country: ""
   });
   const [formValidationResponse, setFormValidationResponse] = useState("");
-  const [showOtpScreen,setShowOtpSceen] = useState(false)
-  const  [otpCode,setOtpCode] = useState(null)
-  const [load,setLoading] = useState(false)
+  const [showOtpScreen, setShowOtpSceen] = useState(false);
+  const [otpCode, setOtpCode] = useState(null);
+  const [load, setLoading] = useState(false);
 
   return (
     <div className=" w-full mx-auto  md:ms-10  flex flex-col justify-center place-items-center md:block    md:w-1/2 xl:pe-12 text-white ps-10 pe-10 overflow-y-auto min-h-[100vh]">
@@ -42,7 +45,11 @@ const RegisterUserForm = () => {
       </div>
 
       {/*form container*/}
-      <div className={` ${(showOtpScreen)? 'hidden':'flex'} flex-col place-items-center   place-content-center`}>
+      <div
+        className={` ${showOtpScreen
+          ? "hidden"
+          : "flex"} flex-col place-items-center   place-content-center`}
+      >
         {/*FirstName Container*/}
         <div className="mt-8">
           <p>FirstName</p>
@@ -115,17 +122,18 @@ const RegisterUserForm = () => {
             name="profilePicture"
             accept="images/*"
             onChange={e => {
-
-             getBase64String(e.target.files[0]).then(result=>{
-               
-                setFormData(prevState => {
-                  return { ...prevState, profilePicture:result.split(',')[1]};
+              getBase64String(e.target.files[0])
+                .then(result => {
+                  setFormData(prevState => {
+                    return {
+                      ...prevState,
+                      profilePicture: result.split(",")[1]
+                    };
+                  });
+                })
+                .catch(err => {
+                  setFormValidationResponse(err.message);
                 });
-
-             }).catch(err=>{
-              setFormValidationResponse(err.message)
-             })
-              
             }}
           />
         </div>
@@ -239,7 +247,6 @@ const RegisterUserForm = () => {
               }
 
               if (!formData.profilePicture) {
-                
                 setFormValidationResponse("profilePicture is required.");
                 openPopUpScreen();
                 return;
@@ -273,7 +280,7 @@ const RegisterUserForm = () => {
                 !/^\+?\d{1,3}[-]?\(?\d{3}\)?[-]?\d{3}[-]?\d{4}$/.test(
                   formData.phoneNumber
                 ) ||
-                formData.phoneNumber.length === 15
+                formData.phoneNumber.length !== 15
               ) {
                 setFormValidationResponse("Invalid phone number");
                 openPopUpScreen();
@@ -308,32 +315,36 @@ const RegisterUserForm = () => {
                 return;
               }
 
-              if(formData.country === 'default'){
-               setFormValidationResponse("Please select country.");
+              if (formData.country === "default") {
+                setFormValidationResponse("Please select country.");
                 openPopUpScreen();
                 return;
               }
 
-               if(formData.currency === 'default'){
-               setFormValidationResponse("Please select currency.");
+              if (formData.currency === "default") {
+                setFormValidationResponse("Please select currency.");
                 openPopUpScreen();
                 return;
               }
 
               setFormValidationResponse("");
               // eslint-disable-next-line no-unused-vars
-              const {confirmPassword,...dataToSend } = formData
+              const { confirmPassword, ...dataToSend } = formData;
 
-              registerUser(dataToSend).then(res=>{
-             return res.json() }).then(result=>{
-               if(result.status ===200){
-                closePopUpScreen()
-              setShowOtpSceen(true)
-              return
-               }
+              registerUser(dataToSend)
+                .then(res => {
+                  return res.json();
+                })
+                .then(result => {
+                  if (result.status === 200) {
+                    closePopUpScreen();
+                    setShowOtpSceen(true);
+                    return;
+                  }
 
-               setFormValidationResponse(result.message)
-             }).catch(err=>setFormValidationResponse(err.message))
+                  setFormValidationResponse(result.message);
+                })
+                .catch(err => setFormValidationResponse(err.message));
             }}
           >
             <p>
@@ -358,7 +369,11 @@ const RegisterUserForm = () => {
         </div>
       </div>
 
-      <div className={`w-full ${(showOtpScreen)? 'flex':'hidden'} h-screen  flex-col justify-center place-items-center`}>
+      <div
+        className={`w-full ${showOtpScreen
+          ? "flex"
+          : "hidden"} h-screen  flex-col justify-center place-items-center`}
+      >
         <p>Enter OTP To Verify Email</p>
         <div className="mt-8">
           <p>OTP</p>
@@ -371,50 +386,52 @@ const RegisterUserForm = () => {
               setOtpCode(e.target.value);
             }}
           />
-
         </div>
-        <p className="mx-auto mb-5  mt-8 w-1/2 bg-yellow-600 p-2 rounded-xl text-center hover:shadow-gray-600 hover:shadow-lg  " onClick={()=>{
-        
-         if(!otpCode || String(otpCode).length !==4){
-            
-             setFormValidationResponse('Opt code not provided or Otp less or greater than 4 digits.')
-             openPopUpScreen()
-             return
-           }
-           setLoading(true)
-           verifyEmail({
-            email:formData.email,
-            otp:otpCode
-           }).then(res=>{
-            return res.json()
-           }).then(result=>{
-            if(result.status === 200){
-              
-              loginDispatcher({type:'ADD_USER_DETAILS',payload:{user:result.user}})  
-              navigate('/user/dashboard')
-              return
+        <p
+          className="mx-auto mb-5  mt-8 w-1/2 bg-yellow-600 p-2 rounded-xl text-center hover:shadow-gray-600 hover:shadow-lg  "
+          onClick={() => {
+            if (!otpCode || String(otpCode).length !== 4) {
+              setFormValidationResponse(
+                "Opt code not provided or Otp less or greater than 4 digits."
+              );
+              openPopUpScreen();
+              return;
             }
-            setLoading(false)
-              setFormValidationResponse(result.message)
-              setOtpCode(null)
-              
-              openPopUpScreen()
-           })
+            setLoading(true);
+            verifyEmail({
+              email: formData.email,
+              otp: otpCode
+            })
+              .then(res => {
+                return res.json();
+              })
+              .then(result => {
+                if (result.status === 200) {
+                  loginDispatcher({
+                    type: "ADD_USER_DETAILS",
+                    payload: { user: result.user }
+                  });
+                  navigate("/user/dashboard");
+                  return;
+                }
+                setLoading(false);
+                setFormValidationResponse(result.message);
+                setOtpCode(null);
 
-        }}>
+                openPopUpScreen();
+              });
+          }}
+        >
           Verify
         </p>
-       
-       {  (load) && <CircularProgress
-                  sx={{
-                    color: "green"
-                  }}
-                  size={50}
-                />
-                
-                
-                }
-      
+
+        {load &&
+          <CircularProgress
+            sx={{
+              color: "green"
+            }}
+            size={50}
+          />}
       </div>
 
       <PopUpScreen>

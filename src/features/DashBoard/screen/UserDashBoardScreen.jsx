@@ -4,10 +4,12 @@ import { useContext, useEffect } from "react";
 import { AppContext } from "../../../context/AppContext";
 import { getMarketCap } from "../service";
 
+
 const UserDashBoardScreen = () => {
 
     const {coinsReducerDispatcher,coinsReducerState} = useContext(AppContext)
-
+    
+  
     
     useEffect(() => {
    
