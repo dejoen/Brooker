@@ -120,7 +120,7 @@ const RegisterUserForm = () => {
             type="file"
             required
             name="profilePicture"
-            accept="images/*"
+            accept="image/"
             onChange={e => {
               getBase64String(e.target.files[0])
                 .then(result => {
@@ -277,11 +277,18 @@ const RegisterUserForm = () => {
               }
 
               if (
-                !/^\+?\d{1,3}[-]?\(?\d{3}\)?[-]?\d{3}[-]?\d{4}$/.test(
+                (/^\+$/.test(
                   formData.phoneNumber
-                ) ||
-                formData.phoneNumber.length !== 15
+                )  )
               ) {
+               
+                setFormValidationResponse("Invalid phone number");
+                openPopUpScreen();
+                return;
+              }
+
+              if(formData.phoneNumber.length !== 14){
+                alert(formData.phoneNumber.length)
                 setFormValidationResponse("Invalid phone number");
                 openPopUpScreen();
                 return;
