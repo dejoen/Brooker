@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import  { createContext, useReducer } from "react";
 import { coinsInitialState, CoinsReducer } from "../reducer/CoinReducer";
 import { LoginInitialState, LoginReducer } from "../reducer/LoginReducer";
 
@@ -16,7 +16,7 @@ const  AppContextProvider = ({children}) => {
 }
 
 AppContextProvider.propTypes = {
-  children:React.Children
+  children:HTMLElement
 }
   
 export default AppContextProvider

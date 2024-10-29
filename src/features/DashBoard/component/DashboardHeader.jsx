@@ -1,26 +1,14 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext} from "react";
 import menuIcon from "../../../assets/menuIcon.svg";
 import { openNavBar } from "./DashBoardNavBarDrawer";
 import { AppContext } from "../../../context/AppContext";
 import { Navigate } from "react-router-dom";
-import { refreshToken } from "../service";
+
 
 const DashBoardHeader = () => {
-  const { loginReducerState ,loginReducerDispatcher} = useContext(AppContext);
+  const { loginReducerState} = useContext(AppContext);
  
-  useEffect(()=>{
-    if(!loginReducerState.user && localStorage.getItem('token')){
-      
-     refreshToken(localStorage.getItem('token')).then(res=>{return res.json()}).then(result=>{
-        if(result.status === 200){
-           loginReducerDispatcher({type:"ADD_USER_DETAILS",payload:{user:result.user}})
-           
-        }
-       
-     })
-     
-    }
-},[loginReducerDispatcher,loginReducerState])
+  
 
   return (
     <React.Fragment>

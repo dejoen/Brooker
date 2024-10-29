@@ -1,9 +1,9 @@
 const BalanceContainer = () => {
   return (
     <div className="  m-10">
-      <div className="w-full flex  flex-col md:flex-row justify-center place-items-center">
-        <div className="text-sm w-1/2 p-3 ">
-          <div className="border border-[#F7931A] text-center md:text-start w-[200px] p-2 rounded-md ">
+      <div className="w-full flex  flex-col md:flex-row justify-center place-items-center ">
+        <div className="text-sm w-full md:w-1/2 p-3 ">
+          <div className="w-full border border-[#F7931A] text-center md:text-start md:w-[200px] p-2 rounded-md ">
             <p className="pb-2 text-white font-bold">Current balance</p>
             <p className="font-bold">
               {"$0.8989"}

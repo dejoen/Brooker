@@ -18,9 +18,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route
           path="/"
           element={
-            <AppContextProvider>
+           
               <App />
-            </AppContextProvider>
+           
           }
         />
 

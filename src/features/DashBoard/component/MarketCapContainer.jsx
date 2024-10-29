@@ -13,7 +13,7 @@ const MarketContainer = () => {
       .then(trendingCoins => {
         setTrendingCoins(trendingCoins.coins);
       })
-      .catch(err => alert(err));
+      .catch(() =>{});
   }, []);
 
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import  logo from '../../../assets/binanceicon.svg'
 
 const DashBoardNavBar = () => {
     const location = useLocation()
@@ -89,7 +89,7 @@ const DashBoardNavBar = () => {
     return (
    <div className="hidden md:block w-[250px] bg-[#212325] text-white h-dvh">
   <div className="flex w-full place-items-center justify-center mt-8">
-    <img src="/"/>
+    <img className="w-[40px] h-[20px] me-2" src={logo}/>
     <p className="text-orange-400">Binnaces</p>
   </div>
 
@@ -254,7 +254,7 @@ const DashBoardNavBar = () => {
 
             }
          })
-    }}>Acedemy</p>
+    }}>Academy</p>
    </div>
 /* 
 <div className={` ${(activeNavState.profileNav.isActive)? 'bg-[#FFA50D] border border-[#77ED91] text-black':''} p-2 w-[180px] text-center rounded-[25px]`}>

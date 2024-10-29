@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-
+import  logo from '../../../assets/binanceicon.svg'
 
 const DashboardNavBarDrawer = () =>{
     
@@ -61,7 +61,7 @@ const DashboardNavBarDrawer = () =>{
                }
          }
 
-         case 'acedemy':{
+         case 'academy':{
            return  {
                  dashBoardNav:{
                      isActive:false
@@ -94,7 +94,7 @@ const DashboardNavBarDrawer = () =>{
                 closeNavBar()
             }}>x</p>
         <div className="flex w-full place-items-center justify-center mt-8">
-          <img src="/"/>
+        <img className="w-[40px] h-[20px] me-2" src={logo}/>
           <p className="text-orange-400">Binnaces</p>
         </div>
       

@@ -365,11 +365,13 @@ const RegisterUserForm = () => {
             </p>
           </div>
 
-          <div className="mt-8 w-full text-center">
+          <div className="mt-8 w-full text-center mb-5">
             <p>
-              Already have an account?{" "}
+              Already have an account?{"    "}
               <span className="text-yellow-500 ">
-                <a href="#">Login</a>
+                <a  className="underline cursor-default hover:text-blue-600" onClick={()=>{
+                  navigate('/loginUser')
+                }}>Login</a>
               </span>
             </p>
           </div>
@@ -443,7 +445,7 @@ const RegisterUserForm = () => {
 
       <PopUpScreen>
         <div
-          className={`animate-popUpAnimation  w-full flex flex-col place-items-center `}
+          className={`animate-popUpAnimation  w-full flex flex-col place-items-center  min-h-fit`}
         >
           <p className="w-full text-center m-5 text-2xl p-5 ">
             {formValidationResponse

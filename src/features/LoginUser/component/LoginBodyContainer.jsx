@@ -116,18 +116,20 @@ const LoginBodyContainer = () => {
           }}>
             <p>Login</p>
           </div>
+          </form>
+          <div className="mt-10  flex flex-col place-content-center justify-center  gap-3">
+            <p className="text-sm hover:text-[#EDD777] hover:underline">Forgot Password ?</p>
 
-          <div className="mt-10 flex flex-col  gap-3">
-            <p className="text-sm">Forgot Password ?</p>
-
-            <p className="text-sm">
+            <p className="text-sm ">
               {"Don't have Account?    "}
-              <span className="text-[#EDD777] hover:underline cursor-pointer">
+              <span className="text-[#EDD777] hover:underline cursor-pointer" onClick={()=>{
+                navigate('/registerUser')
+              }}>
                 Register
               </span>
             </p>
           </div>
-        </form>
+        
       </div>
 
       <PopUpScreen>

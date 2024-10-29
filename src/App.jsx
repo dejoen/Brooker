@@ -1,7 +1,6 @@
 
 
 import WelcomeScreen from './features/home/screen/homeScreen'
-import  PopUpScreen,{closePopUpScreen,openPopUpScreen} from './utils/popUpScreen/popUpScreenComponent'
 
 
 let App = () =>{
