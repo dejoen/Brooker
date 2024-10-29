@@ -103,7 +103,7 @@ const LoginBodyContainer = () => {
            }).then(result=>{
               if(result.status === 200){
                  closePopUpScreen()
-                 localStorage.setItem('token',result.user.token)
+                 localStorage.setItem('brokerUser',JSON.stringify({user:result.user}))
                  loginDispatcher({type:'ADD_USER_DETAILS',payload:{user:result.user}})
                  navigate('/user/dashboard')
                  

@@ -3,43 +3,33 @@ import { refreshToken } from "../features/DashBoard/service"
 
 
    
-let getUser = async () =>{
-  return new Promise((resolve,reject)=>{
-    
-    refreshToken(localStorage.getItem('token')).then(res=>{
-      return res.json()
-    }).then(result=>{
-          if(result.status === 200){
-           
-             resolve(result.user)
-             
-             return
-          }
-          resolve({})
+
+
+
+ if(localStorage.getItem('brokerUser')){
+  refreshToken(JSON.parse(localStorage.getItem('brokerUser')).user.token).then(res=>{
+    return res.json()
+  }).then(result=>{
+        if(result.status === 200){
          
-    }).catch(()=>{
-        reject({})
-    })
+            localStorage.setItem(JSON.stringify({user:result.user}))
+           
+           return
+        }
+        localStorage.removeItem('brookerUser')
+       
+  }).catch(()=>{
+    localStorage.removeItem('brookerUser')
   })
-}
-
-
-let user = {}
-if(localStorage.getItem('token')){
-  try {
-     user= await     getUser()
-  
-  } catch (error) {
-    user = {}
-  }
- 
-}
+ }
 
 
 
 
-   
-export const LoginInitialState = (user.id) ? {user} :{}
+const user = ( localStorage.getItem('brokerUser')) ?   JSON.parse(localStorage.getItem('brokerUser')).user : {}
+
+   console.log(user)
+export const LoginInitialState = {user}
    
 
 
